@@ -1,15 +1,14 @@
-package Buscaminas;
+package code;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Nivel2 extends BuilderTablero{
+public class Nivel3 extends BuilderTablero {
 
-	@Override
 	public void ponerNivel() {
 		// TODO Auto-generated method stub
-		tab.setAlto(8);
-		tab.setAncho(8);
+		tab.setAlto(16);
+		tab.setAncho(16);
 		tab.m=new BuilderCasilla[tab.getAncho()][tab.getAlto()];
 
 	}
@@ -20,7 +19,7 @@ public class Nivel2 extends BuilderTablero{
 		int condicion=0;
 		int i;
 		int z;
-		condicion=tab.getAncho()/2;
+		condicion=(tab.getAncho()/2)+(tab.getAncho()/4);
 		while(condicion>0){
 			double e=Math.random()*tab.getAncho();
 			i=(int)e;

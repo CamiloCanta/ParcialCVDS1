@@ -1,4 +1,4 @@
-package Buscaminas;
+package code;
 
 import java.util.ArrayList;
 import java.util.Iterator;

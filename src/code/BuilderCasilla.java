@@ -1,4 +1,4 @@
-package Buscaminas;
+package code;
 
 public abstract class BuilderCasilla {
 

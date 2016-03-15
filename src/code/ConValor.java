@@ -1,14 +1,15 @@
-package Buscaminas;
+package code;
 
-public class Bomba extends BuilderCasilla{
+public class ConValor extends BuilderCasilla{
 
-	public Bomba(){
+	public ConValor(){
 		cas=new Casilla();
 	}
 	@Override
 	public void darValor(String b) {
 		// TODO Auto-generated method stub
-		cas.darValor(b);
+		cas.darValor(String.valueOf(b));
+		
 	}
 
 	@Override
@@ -16,5 +17,4 @@ public class Bomba extends BuilderCasilla{
 		// TODO Auto-generated method stub
 		cas.cambiarEstado(false);
 	}
-
 }

@@ -1,4 +1,4 @@
-package Buscaminas;
+package code;
 
 public class Vacia extends BuilderCasilla{
 
