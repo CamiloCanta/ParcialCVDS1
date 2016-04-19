@@ -16,6 +16,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LoginPanel extends JFrame {
 
@@ -61,6 +63,10 @@ public class LoginPanel extends JFrame {
 		
 		
 		JButton btnJugar = new JButton("Jugar");
+		btnJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnJugar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
