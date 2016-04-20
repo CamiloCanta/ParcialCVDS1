@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import code.Buscaminas;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -71,7 +74,7 @@ public class LoginPanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				//Metodo nueva partida
-				//Buscaminas.getMiBuscaminas.nuevaPartida(textFieldUsuario.getText(),comboBoxDif.getSelectedItem());
+			Buscaminas.getMiBuscaminas().nuevaPartida(textFieldUsuario.getText(),comboBoxDif.getSelectedItem());
 				
 			}
 		});

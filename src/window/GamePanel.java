@@ -6,9 +6,13 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+
+import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GamePanel extends JFrame {
 
@@ -38,31 +42,30 @@ public class GamePanel extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		for (int i = 0; i < 81; i++) {
-			JButton btnNewButton = new JButton(""+i);
-			contentPane.add(btnNewButton, BorderLayout.CENTER);
-		}
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
+		JPanel panelJuego = new JPanel();
+		contentPane.add(panelJuego, BorderLayout.CENTER);
+		
+		JButton btnNewButton = new JButton("New button");
+		
+		GroupLayout gl_panelJuego = new GroupLayout(panelJuego);
+		gl_panelJuego.setHorizontalGroup(
+			gl_panelJuego.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelJuego.createSequentialGroup()
+					.addGap(35)
+					.addComponent(btnNewButton)
+					.addContainerGap(300, Short.MAX_VALUE))
+		);
+		gl_panelJuego.setVerticalGroup(
+			gl_panelJuego.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelJuego.createSequentialGroup()
 					.addGap(28)
 					.addComponent(btnNewButton)
-					.addContainerGap(307, Short.MAX_VALUE))
+					.addContainerGap(200, Short.MAX_VALUE))
 		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(29)
-					.addComponent(btnNewButton)
-					.addContainerGap(199, Short.MAX_VALUE))
-		);
-		contentPane.setLayout(gl_contentPane);
-		
-		
-		
+		panelJuego.setLayout(gl_panelJuego);
 	}
 
 }

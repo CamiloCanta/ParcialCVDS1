@@ -16,7 +16,6 @@ import org.xml.sax.helpers.XMLReaderFactory;
 public class ListaUsuarios {
 	private ArrayList<Usuario> lista;
 	private static ListaUsuarios miListaUsuarios=new ListaUsuarios("");//ruta
-	private String path;
 	
 	private ListaUsuarios(String pPath){
 		lista=new ArrayList<Usuario>();
