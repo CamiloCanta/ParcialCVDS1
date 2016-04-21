@@ -34,25 +34,27 @@ public class Tablero {
 		}
 	}
 	public ArrayList<Integer> destapar(int i,int z){
-		ArrayList<Integer> lista=new ArrayList<Integer>();
-		int a,b;
-		if(m[i][z].cas.getValor()=="0"){
-			m[i][z].cas.cambiarEstado(true);
-			lista.add(i);
-			lista.add(z);
-			ArrayList<Integer> lis=buscar(i, z);
-			Iterator<Integer> it=lis.iterator();
-			while(it.hasNext()){
-				a=it.next();
-				b=it.next();
-				if(m[a][b].cas.getValor()=="0"){
-					lista.addAll(destapar(a,b));
+		if(!m[i][z].cas.bloqueado){
+			ArrayList<Integer> lista=new ArrayList<Integer>();
+			int a,b;
+			if(m[i][z].cas.getValor()=="0"){
+				m[i][z].cas.cambiarEstado(true);
+				lista.add(i);
+				lista.add(z);
+				ArrayList<Integer> lis=buscar(i, z);
+				Iterator<Integer> it=lis.iterator();
+				while(it.hasNext()){
+					a=it.next();
+					b=it.next();
+					if(m[a][b].cas.getValor()=="0"){
+						lista.addAll(destapar(a,b));
+					}
 				}
-			}
-		}
-		
-		
-		return lista;
+			}		
+			return lista;
+	}else{
+		return null;
+	}
 	}
 	public void marcarDesmarcar(int i,int j){
 		if(bloqueos<=m.length){
@@ -61,7 +63,11 @@ public class Tablero {
 			}else{
 				this.bloqueos--;
 			}
+		}else if(m[i][j].cas.bloqueado){
+			m[i][j].cas.bloquearDesbloquear();
+			this.bloqueos--;
 		}
+		
 	}
 	public void imprimir(){
 		 for (int i=0;i<ancho;i++){
