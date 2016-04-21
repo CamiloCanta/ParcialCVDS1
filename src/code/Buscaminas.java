@@ -18,4 +18,7 @@ public class Buscaminas {
 		// TODO Auto-generated method stub
 		
 	}
+	public void marcarDesmarcar(int i,int j){
+		this.tablero.marcarDesmarcar(i, j);
+	}
 }
