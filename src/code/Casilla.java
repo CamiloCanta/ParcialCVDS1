@@ -4,6 +4,7 @@ public class Casilla {
 
 	String valor;
 	boolean estado;
+	boolean bloqueado=False;
 	
 	public Casilla(){
 		estado=false;
@@ -11,6 +12,10 @@ public class Casilla {
 	
 	public boolean getEstado(){
 		return estado;
+	}
+	public boolean bloquearDesbloquear(){
+		bloqueado = !bloqueado;
+		return bloqueado;
 	}
 	public String getValor(){
 		return valor;
