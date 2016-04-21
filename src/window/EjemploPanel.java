@@ -86,13 +86,16 @@ public class EjemploPanel extends JFrame {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				JButton btnEjemplo = new JButton(""+i+" "+j);
+				int x= i;
+				int y= j;
 				btnEjemplo.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK)
-				            System.out.println("Click con el botón izdo");
+				            System.out.println("Click con el botÃ³n izdo");
 				        else
-				            System.out.println("Click con el botón dcho");
+				            System.out.println("Click con el botÃ³n dcho");
+					    Buscaminas.getMiBuscaminas().marcarDesmarcar(x,y);
 					}
 				});
 				GridBagConstraints gbc_btnEjemplo = new GridBagConstraints();
