@@ -8,6 +8,7 @@ public class Tablero {
 	public BuilderCasilla [][] m;
 	int ancho;
 	int alto;
+	int bloqueos=0;
 	
 	public Tablero(){
 	}
@@ -52,6 +53,15 @@ public class Tablero {
 		
 		
 		return lista;
+	}
+	public void marcarDesmarcar(int i,int j){
+		if(bloqueos<=m.length){
+			if(m[i][j].cas.bloquearDesbloquear()){
+				this.bloqueos++;			
+			}else{
+				this.bloqueos--;
+			}
+		}
 	}
 	public void imprimir(){
 		 for (int i=0;i<ancho;i++){
