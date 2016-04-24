@@ -9,6 +9,7 @@ public class Nivel3 extends BuilderTablero {
 		// TODO Auto-generated method stub
 		tab.setAlto(16);
 		tab.setAncho(16);
+		tab.setMinas(12);
 		tab.m=new BuilderCasilla[tab.getAncho()][tab.getAlto()];
 
 	}

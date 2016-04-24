@@ -4,7 +4,7 @@ public class Casilla {
 
 	String valor;
 	boolean estado;
-	boolean bloqueado=False;
+	boolean bloqueado=false;
 	
 	public Casilla(){
 		estado=false;
@@ -23,8 +23,8 @@ public class Casilla {
 	public void darValor(String v){
 		valor=v;
 	}
-	public void cambiarEstado(boolean es){
-		estado=es;
+	public void cambiarEstado(){
+		estado=true;
 	}
 	public boolean esBomba(){
 		if(valor=="B"){

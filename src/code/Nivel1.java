@@ -11,6 +11,7 @@ public class Nivel1 extends BuilderTablero {
 		// TODO Auto-generated method stub
 		tab.setAlto(4);
 		tab.setAncho(4);
+		tab.setMinas(2);
 		tab.m=new BuilderCasilla[tab.getAncho()][tab.getAlto()];
 	}
 

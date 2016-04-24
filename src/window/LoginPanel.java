@@ -75,7 +75,7 @@ public class LoginPanel extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				//Metodo nueva partida
 			Buscaminas.getMiBuscaminas().nuevaPartida(textFieldUsuario.getText(),comboBoxDif.getSelectedItem());
-				
+			dispose();	
 			}
 		});
 		

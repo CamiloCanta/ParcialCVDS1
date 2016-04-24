@@ -3,14 +3,22 @@ package code;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.JFrame;
+
+import window.EjemploPanel;
+
 public class Tablero {
 
 	public BuilderCasilla [][] m;
 	int ancho;
 	int alto;
 	int bloqueos=0;
+	int minas=0;
+	private EjemploPanel tableroG;
 	
-	public Tablero(){
+	public Tablero(int pNivel){
+		tableroG = new EjemploPanel(pNivel);
+		tableroG.setVisible(true);
 	}
 	public void setAncho(int a){
 		ancho=a;
@@ -29,16 +37,17 @@ public class Tablero {
 	public void revelarTablero(){
 		for (int i=0;i<ancho;i++){
 		      for (int z=0;z<alto;z++){
-		    	  m[i][z].cas.cambiarEstado(false);
+		    	  m[i][z].cas.cambiarEstado();
 		      }
 		}
 	}
 	public ArrayList<Integer> destapar(int i,int z){
-		if(!m[i][z].cas.bloqueado){
+		if(!m[i][z].cas.bloqueado && !m[i][z].cas.getEstado() ){
 			ArrayList<Integer> lista=new ArrayList<Integer>();
 			int a,b;
-			if(m[i][z].cas.getValor()=="0"){
-				m[i][z].cas.cambiarEstado(true);
+			if(m[i][z].cas.getValor().equals("0")){
+				System.out.println("Entra en caso raro");
+				m[i][z].cas.cambiarEstado();
 				lista.add(i);
 				lista.add(z);
 				ArrayList<Integer> lis=buscar(i, z);
@@ -46,28 +55,43 @@ public class Tablero {
 				while(it.hasNext()){
 					a=it.next();
 					b=it.next();
-					if(m[a][b].cas.getValor()=="0"){
+					if(m[a][b].cas.getValor().equals("0") && (m[a][b].cas.getEstado()==false)){
 						lista.addAll(destapar(a,b));
 					}
 				}
-			}		
+			}else if(m[i][z].cas.getValor().equals("B")){
+				System.out.println("Bomba");
+			}else{
+				m[i][z].cas.cambiarEstado();
+				lista.add(i);
+				lista.add(z);
+				System.out.println("Caso normal "+ m[i][z].cas.getValor());
+			}
 			return lista;
 	}else{
 		return null;
 	}
 	}
-	public void marcarDesmarcar(int i,int j){
-		if(bloqueos<=m.length){
+	public boolean marcarDesmarcar(int i,int j){
+		boolean d = false;
+		if(bloqueos<this.minas){
+			System.out.println("Primera opcion");
 			if(m[i][j].cas.bloquearDesbloquear()){
-				this.bloqueos++;			
+				this.bloqueos++;
+				System.out.println(bloqueos);
 			}else{
 				this.bloqueos--;
+				System.out.println(bloqueos);
 			}
+			d=true;
 		}else if(m[i][j].cas.bloqueado){
+			System.out.println("Segunda opcion");
 			m[i][j].cas.bloquearDesbloquear();
 			this.bloqueos--;
+			d=true;
+			System.out.println(bloqueos);
 		}
-		
+		return d;
 	}
 	public void imprimir(){
 		 for (int i=0;i<ancho;i++){
@@ -178,6 +202,14 @@ public class Tablero {
 
 		}
 		return arr;
+	}
+	public void setMinas(int i) {
+		this.minas=i;
+		
+	}
+	public int getMinas() {
+		// TODO Auto-generated method stub
+		return this.minas;
 	}
 }
 

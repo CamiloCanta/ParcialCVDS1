@@ -4,8 +4,8 @@ public abstract class BuilderTablero {
 
 	protected Tablero tab;
 	
-	public void construirTablero(){
-		tab=new Tablero();
+	public void construirTablero(int pNivel){
+		tab=new Tablero(pNivel);
 		ponerNivel();
 		ponerBombas();
 		asignarValores();
@@ -13,5 +13,8 @@ public abstract class BuilderTablero {
 	public abstract void ponerNivel();
 	public abstract void ponerBombas();
 	public abstract void asignarValores();
+	public Tablero devolverTablero(){
+		return tab;
+	}
 	
 }

@@ -7,12 +7,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import code.Buscaminas;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.GridBagLayout;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
@@ -21,7 +25,7 @@ import javax.swing.JLabel;
 public class EjemploPanel extends JFrame {
 
 	private JPanel contentPane;
-	private JButton [][] listaBotones=new JButton[10][10];
+	private JButton [][] listaBotones;
 
 	/**
 	 * Launch the application.
@@ -30,7 +34,7 @@ public class EjemploPanel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EjemploPanel frame = new EjemploPanel();
+					EjemploPanel frame = new EjemploPanel(1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +46,7 @@ public class EjemploPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EjemploPanel() {
+	public EjemploPanel(int pNivel) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 485, 350);
 		contentPane = new JPanel();
@@ -83,19 +87,52 @@ public class EjemploPanel extends JFrame {
 		JButton btnMostrarRanking = new JButton("Mostrar Ranking");
 		panel_2.add(btnMostrarRanking);
 		
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				JButton btnEjemplo = new JButton(""+i+" "+j);
-				int x= i;
-				int y= j;
+		//Tama�ano maximo
+		int x;
+		int y;
+		if (pNivel==1) {
+			x=4;
+			y=4;
+			 
+		}else if (pNivel==2) {
+			x=8;
+			y=8;
+		}else{
+			y=16;
+			x=16;
+		}
+		listaBotones = new JButton[x][y];
+		
+		for (int i = 0; i < x; i++) {
+			for (int j = 0; j < y; j++) {
+				JButton btnEjemplo = new JButton(" ");
+				int xT=i;
+				int yT=j;
+
 				btnEjemplo.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK)
-				            System.out.println("Click con el botón izdo");
-				        else
-				            System.out.println("Click con el botón dcho");
-					    Buscaminas.getMiBuscaminas().marcarDesmarcar(x,y);
+						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK){
+							ArrayList<Integer> listaDestapar;
+							System.out.println(listaDestapar = Buscaminas.getMiBuscaminas().destapar(xT,yT));
+							int k =0;
+							while (k < listaDestapar.size()) {
+								listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setText("Vacio");
+								k = k+2;
+							}
+						}else{
+						//Hacer contador de minas marcadas
+					    //Buscaminas.getMiBuscaminas().marcarDesmarcar(xT,yT);
+					    //If de control de banderitas
+					    if (Buscaminas.getMiBuscaminas().marcarDesmarcar(xT,yT)) {
+							if (btnEjemplo.getText().equals(" ")) {
+								btnEjemplo.setText("$");
+							} else {
+								btnEjemplo.setText(" ");
+							}
+						}
+					    
+						}
 					}
 				});
 				GridBagConstraints gbc_btnEjemplo = new GridBagConstraints();

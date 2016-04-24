@@ -14,7 +14,7 @@ public class Bomba extends BuilderCasilla{
 	@Override
 	public void ponerEstado() {
 		// TODO Auto-generated method stub
-		cas.cambiarEstado(false);
+		//cas.cambiarEstado(false);
 	}
 
 }
