@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import code.Buscaminas;
+import code.ListaUsuarios;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
@@ -76,6 +78,9 @@ public class LoginPanel extends JFrame {
 				//Metodo nueva partida
 			Buscaminas.getMiBuscaminas().nuevaPartida(textFieldUsuario.getText(),comboBoxDif.getSelectedItem());
 			dispose();	
+			if(!ListaUsuarios.getMiListaJugadores().buscarJugador(textFieldUsuario.getText())){
+				ListaUsuarios.getMiListaJugadores().anadirJugadorPorNombre(textFieldUsuario.getText());
+			}
 			}
 		});
 		

@@ -12,10 +12,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import com.thoughtworks.xstream.XStream;
+
 
 public class ListaUsuarios {
 	private ArrayList<Usuario> lista;
-	private static ListaUsuarios miListaUsuarios=new ListaUsuarios("");//ruta
+	private static ListaUsuarios miListaUsuarios=new ListaUsuarios("Ranking3.xml");//ruta
 	private String path;
 	
 	private ListaUsuarios(String pPath){
@@ -46,9 +48,9 @@ public class ListaUsuarios {
 		
 	}
 	
-	public void anadirJugadorPorNombre(String pJug, String pApellidos){
+	public void anadirJugadorPorNombre(String pJug){
 		
-		this.lista.add(new Usuario(pJug, pApellidos));
+		this.lista.add(new Usuario(pJug));
 		
 	}
 	

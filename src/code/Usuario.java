@@ -6,9 +6,9 @@ public class Usuario {
 	private String apellidos;
 	private int puntuacion;
 	
-	public Usuario(String pNombre, String pApellidos){
+	public Usuario(String pNombre){
 		nombre=pNombre;
-		apellidos=pApellidos;
+		
 	}
 	
 	public String getNombre(){

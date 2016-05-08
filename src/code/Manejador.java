@@ -12,7 +12,7 @@ public class Manejador extends DefaultHandler {
 	private Usuario jug;
 
 	public Manejador(){
-		this.jug=new Usuario(null, null);
+		this.jug=new Usuario(null);
 	}
 	@Override
     public void startDocument() {
@@ -29,7 +29,7 @@ public class Manejador extends DefaultHandler {
         num=0;
         nom=null;
         if(localName.equals("Jugador")){
-        	jug=new Usuario(null, null);
+        	jug=new Usuario(null);
         }
         //Recorremos los atributos  
       
