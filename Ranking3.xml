@@ -1,0 +1,22 @@
+<list>
+  <Jugador>
+    <nombre>Paco</nombre>
+    <puntuacion>8</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>Pepe</nombre>
+    <puntuacion>8</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>Irune</nombre>
+    <puntuacion>13</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>Angulo</nombre>
+    <puntuacion>14</puntuacion>
+  </Jugador>
+    <Jugador>
+    <nombre>aa</nombre>
+    <puntuacion>14</puntuacion>
+  </Jugador>
+</list>

@@ -48,4 +48,14 @@ public class Buscaminas {
 		return tablero.destapar(xT, yT);
 		
 	}
+	
+	public boolean esBomba(int i, int z){
+		return tablero.esBomba(i, z);
+	}
+	public ArrayList<String> revelar(){
+		return tablero.revelarTablero();
+	}
+	public int calcularPuntuacion(){
+		return tablero.calcularPuntuacion();
+	}
 }

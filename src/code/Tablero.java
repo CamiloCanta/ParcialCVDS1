@@ -34,11 +34,35 @@ public class Tablero {
 	public  int getAlto(){
 		return alto;
 	}
-	public void revelarTablero(){
+	public int calcularPuntuacion(){
+		int result=0;
+		for (int i=0;i<ancho;i++){
+		      for (int z=0;z<alto;z++){
+		    	  if(!m[i][z].cas.getValor().equals("B")){
+		    		  result=result+(Integer.parseInt(m[i][z].cas.getValor())+1);
+		    	  }
+		      }
+		}return result;
+	}
+	public ArrayList<String> revelarTablero(){//devolver todas las casillas
+		ArrayList<String> lista=new ArrayList<String>();
 		for (int i=0;i<ancho;i++){
 		      for (int z=0;z<alto;z++){
 		    	  m[i][z].cas.cambiarEstado();
+		    	  if(m[i][z].cas.getValor().equals("B")){
+		    		  lista.add("*");
+		    	  }else{
+		    	  lista.add(m[i][z].cas.getValor());
+		    	  }
 		      }
+		}
+		return lista;
+	}
+	public boolean esBomba(int i, int  z){
+		if(m[i][z].cas.getValor().equals("B")){
+			return true;
+		}else{
+			return false;
 		}
 	}
 	public ArrayList<Integer> destapar(int i,int z){

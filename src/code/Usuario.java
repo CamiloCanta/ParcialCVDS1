@@ -8,7 +8,6 @@ public class Usuario {
 	
 	public Usuario(String pNombre){
 		nombre=pNombre;
-		
 	}
 	
 	public String getNombre(){
@@ -17,15 +16,22 @@ public class Usuario {
 	public String getApellidos(){
 		return apellidos;
 	}
-	public void setPuntuacion(int p){
+	private void setPuntuacion(int p){
 		puntuacion=p;
 	}
+	public void calcularPuntuacion(){
+		this.setPuntuacion(Buscaminas.getMiBuscaminas().calcularPuntuacion());
+	}
+	public void darPuntuacion(int p){
+		this.setPuntuacion(p);
+	}
+	
 	
 	public int getPuntos(){
 		return puntuacion;
 	}
 	public void imprimir(){
-		
+		System.out.println(this.getNombre()+ + this.getPuntos());
 	}
 	public void setNombre(String n){
 		nombre=n;

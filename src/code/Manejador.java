@@ -16,12 +16,12 @@ public class Manejador extends DefaultHandler {
 	}
 	@Override
     public void startDocument() {
-        System.out.println("Comienzo del Documento XML");
+        //System.out.println("Comienzo del Documento XML");
     }
  
     @Override
     public void endDocument() {
-        System.out.println("Final del Documento XML");
+        //System.out.println("Final del Documento XML");
     }
  
     public void startElement(String uri, String localName,
@@ -53,12 +53,12 @@ public class Manejador extends DefaultHandler {
     	if(localName.equals("Jugador")){
         	ListaUsuarios.getMiListaJugadores().anadirJugador(jug);
     	}else if(localName.equals("puntuacion")){ 
-    	   jug.setPuntuacion(Integer.parseInt(nom));
+    	   jug.darPuntuacion(Integer.parseInt(nom));
        }else if (localName.equals("nombre")){  
     	   jug.setNombre(nom);
        }  
-    	System.out.println(ListaUsuarios.getMiListaJugadores().getTamano());
-    	ListaUsuarios.getMiListaJugadores().imprimir();
+    	//System.out.println(ListaUsuarios.getMiListaJugadores().getTamano());
+    	//ListaUsuarios.getMiListaJugadores().imprimir();
 
     }  
  
