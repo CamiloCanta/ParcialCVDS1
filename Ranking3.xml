@@ -15,8 +15,12 @@
     <nombre>Angulo</nombre>
     <puntuacion>14</puntuacion>
   </Jugador>
-    <Jugador>
+  <Jugador>
     <nombre>aa</nombre>
     <puntuacion>14</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>Hola</nombre>
+    <puntuacion>23</puntuacion>
   </Jugador>
 </list>

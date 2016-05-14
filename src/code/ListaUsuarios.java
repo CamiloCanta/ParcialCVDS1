@@ -160,7 +160,8 @@ public class ListaUsuarios {
 		Iterator<Usuario> itr= this.getIterator();
 		Usuario j1=null;
 		XStream x =new XStream();
-		FileOutputStream nuevo= new FileOutputStream("ranking2.xml");
+		
+		FileOutputStream nuevo= new FileOutputStream("ranking3.xml");
 		x.alias("Jugador", Usuario.class);
 		x.toXML(this.lista, nuevo);
 		/*while(itr.hasNext()){
