@@ -86,7 +86,6 @@ public class ListaUsuarios {
 			it = this.getCopiaIterator(cpListaJug);
 			i++;
 		}
-		System.out.println("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
 	//System.out.println(ranking.get(0).getNombre() + ranking.get(1).getNombre() + ranking.get(2).getNombre()+ ranking.get(3).getNombre() + ranking.get(4).getNombre());		
 		
 	return ranking;
