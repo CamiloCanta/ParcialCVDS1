@@ -20,6 +20,9 @@ public class Casilla {
 	public String getValor(){
 		return valor;
 	}
+	public boolean getBloqueado(){
+		return bloqueado;
+	}
 	public void darValor(String v){
 		valor=v;
 	}

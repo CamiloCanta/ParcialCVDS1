@@ -48,7 +48,9 @@ public class Buscaminas {
 		return tablero.destapar(xT, yT);
 		
 	}
-	
+	public boolean comprobar(){
+		return this.tablero.comprobar();
+	}
 	public boolean esBomba(int i, int z){
 		return tablero.esBomba(i, z);
 	}

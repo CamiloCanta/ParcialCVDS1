@@ -101,21 +101,27 @@ public class Tablero {
 		if(bloqueos<this.minas){
 			System.out.println("Primera opcion");
 			if(m[i][j].cas.bloquearDesbloquear()){
-				this.bloqueos++;
+				sumarBloqueos();
 				System.out.println(bloqueos);
 			}else{
-				this.bloqueos--;
+				restarBloqueos();
 				System.out.println(bloqueos);
 			}
 			d=true;
 		}else if(m[i][j].cas.bloqueado){
 			System.out.println("Segunda opcion");
 			m[i][j].cas.bloquearDesbloquear();
-			this.bloqueos--;
+			restarBloqueos();
 			d=true;
 			System.out.println(bloqueos);
 		}
 		return d;
+	}
+	private void sumarBloqueos(){
+		this.bloqueos++;
+	}
+	private void restarBloqueos(){
+		this.bloqueos--;
 	}
 	public void imprimir(){
 		 for (int i=0;i<ancho;i++){
@@ -234,6 +240,19 @@ public class Tablero {
 	public int getMinas() {
 		// TODO Auto-generated method stub
 		return this.minas;
+	}
+	public boolean comprobar() {
+		boolean win = true;
+		for (int i=0;i<ancho;i++){
+		      for (int z=0;z<alto;z++){
+		    	  if(m[i][z].cas.getValor().equals("B")){
+		    		  if(!m[i][z].cas.getBloqueado()){
+		    			  win=false;
+		    		  }
+		    	  }
+		      }
+		}
+		return win;
 	}
 }
 
