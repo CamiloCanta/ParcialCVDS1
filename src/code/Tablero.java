@@ -10,10 +10,10 @@ import window.EjemploPanel;
 public class Tablero {
 
 	public BuilderCasilla [][] m;
-	int ancho;
-	int alto;
-	int bloqueos=0;
-	int minas=0;
+	private int ancho;
+	private int alto;
+	private int bloqueos=0;
+	private int minas=0;
 	private EjemploPanel tableroG;
 	
 	public Tablero(int pNivel){
