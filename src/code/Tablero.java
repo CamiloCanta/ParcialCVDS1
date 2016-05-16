@@ -16,8 +16,8 @@ public class Tablero {
 	private int minas=0;
 	private EjemploPanel tableroG;
 	
-	public Tablero(int pNivel){
-		tableroG = new EjemploPanel(pNivel);
+	public Tablero(int pNivel, String pNombre){
+		tableroG = new EjemploPanel(pNivel, pNombre);
 		tableroG.setVisible(true);
 	}
 	public void setAncho(int a){
@@ -66,7 +66,7 @@ public class Tablero {
 		}
 	}
 	public ArrayList<Integer> destapar(int i,int z){
-		if(!m[i][z].cas.bloqueado && !m[i][z].cas.getEstado() ){
+		if(!m[i][z].cas.getBloqueado() && !m[i][z].cas.getEstado() ){
 			ArrayList<Integer> lista=new ArrayList<Integer>();
 			int a,b;
 			if(m[i][z].cas.getValor().equals("0")){
@@ -108,7 +108,7 @@ public class Tablero {
 				System.out.println(bloqueos);
 			}
 			d=true;
-		}else if(m[i][j].cas.bloqueado){
+		}else if(m[i][j].cas.getBloqueado()){
 			System.out.println("Segunda opcion");
 			m[i][j].cas.bloquearDesbloquear();
 			restarBloqueos();
@@ -253,6 +253,22 @@ public class Tablero {
 		      }
 		}
 		return win;
+	}
+	public String getValor(int xT, int yT) {
+		// TODO Auto-generated method stub
+		String mensaje;
+		if(m[xT][yT].cas.getValor().equals("B")){
+			mensaje = "*";
+		}else if(m[xT][yT].cas.getValor().equals("0")){
+			mensaje = "  ";
+		}else{
+			mensaje = m[xT][yT].cas.getValor();
+		}
+		return mensaje;
+	}
+	public boolean estaDestapado(int xT, int yT) {
+		// TODO Auto-generated method stub
+		return m[xT][yT].cas.getEstado();
 	}
 }
 

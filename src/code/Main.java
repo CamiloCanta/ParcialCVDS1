@@ -3,11 +3,12 @@ package code;
 import java.awt.List;
 import java.io.FileNotFoundException;
 
+import window.LoginPanel;
+
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-
 		
 		Buscaminas.getMiBuscaminas().nuevaPartida(null, "1");
 		ListaUsuarios.getMiListaJugadores().cargarJugadores();

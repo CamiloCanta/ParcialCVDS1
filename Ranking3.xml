@@ -23,4 +23,12 @@
     <nombre>Hola</nombre>
     <puntuacion>23</puntuacion>
   </Jugador>
+  <Jugador>
+    <nombre>aaa</nombre>
+    <puntuacion>44</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>nombre raro</nombre>
+    <puntuacion>25</puntuacion>
+  </Jugador>
 </list>

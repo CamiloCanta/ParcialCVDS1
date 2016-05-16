@@ -21,14 +21,14 @@ public class Buscaminas {
 		
 		if ((String)selectedItem == "1") {
 		tablero = new Nivel1();
-		tablero.construirTablero(1);	
+		tablero.construirTablero(1, text);	
 			
 		}else if((String)selectedItem == "2"){
 		tablero = new Nivel2();
-		tablero.construirTablero(2);
+		tablero.construirTablero(2, text);
 		}else{
 		tablero = new Nivel3();	
-		tablero.construirTablero(3);
+		tablero.construirTablero(3, text);
 		}
 		
 		
@@ -59,5 +59,15 @@ public class Buscaminas {
 	}
 	public int calcularPuntuacion(){
 		return tablero.calcularPuntuacion();
+	}
+
+	public String getValor(int xT, int yT) {
+		// TODO Auto-generated method stub
+		return tablero.getValor(xT,yT);
+	}
+
+	public boolean estaDestapado(int xT, int yT) {
+		// TODO Auto-generated method stub
+		return tablero.estaDestapado(xT, yT);
 	}
 }

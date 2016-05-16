@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import code.Buscaminas;
+import code.ListaUsuarios;
+import code.Usuario;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -16,16 +18,21 @@ import java.awt.GridBagLayout;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class EjemploPanel extends JFrame {
 
 	private JPanel contentPane;
 	private JButton [][] listaBotones;
+	private VentanaRankingRR vR;
 
 	/**
 	 * Launch the application.
@@ -34,7 +41,7 @@ public class EjemploPanel extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EjemploPanel frame = new EjemploPanel(1);
+					EjemploPanel frame = new EjemploPanel(1, "hola");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +53,7 @@ public class EjemploPanel extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EjemploPanel(int pNivel) {
+	public EjemploPanel(int pNivel, String pNombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 485, 350);
 		contentPane = new JPanel();
@@ -73,18 +80,85 @@ public class EjemploPanel extends JFrame {
 		contentPane.add(panel_2, BorderLayout.SOUTH);
 		
 		JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnCerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				vR.setVisible(false);
 				dispose();
 			}
 		});
+		
+		JButton btnComprobarResultados = new JButton("Comprobar Resultados");
+		
+		btnComprobarResultados.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				if(Buscaminas.getMiBuscaminas().comprobar()){
+					if(ListaUsuarios.getMiListaJugadores().buscarJugador(pNombre)){
+						ListaUsuarios.getMiListaJugadores().modificarJugador(pNombre);
+					}else{
+						Usuario u = new Usuario(pNombre);
+						ListaUsuarios.getMiListaJugadores().anadirJugador(u);
+						ListaUsuarios.getMiListaJugadores().modificarJugador(pNombre);
+					}
+					try {
+						ListaUsuarios.getMiListaJugadores().ranking();
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					try {
+						vR.dispose();
+						vR = new VentanaRankingRR();
+						vR.setTitle("HAS GANADO-->RANKING JUGADORES");
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					btnComprobarResultados.setBackground(Color.GREEN);
+				}else{
+					btnComprobarResultados.setBackground(Color.RED);
+				}
+				
+			}
+		});
+		panel_2.add(btnComprobarResultados);
 		panel_2.add(btnCerrar);
 		
 		JButton btnNuevoJuego = new JButton("Nuevo Juego");
+		btnNuevoJuego.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				LoginPanel l = new LoginPanel();
+				l.setVisible(true);
+				vR.setVisible(false);
+				dispose();
+			}
+		});
+		btnNuevoJuego.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		panel_2.add(btnNuevoJuego);
 		
 		JButton btnMostrarRanking = new JButton("Mostrar Ranking");
+		btnMostrarRanking.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnMostrarRanking.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(!vR.isVisible()){
+					vR.setVisible(true);
+				}
+			}
+		});
 		panel_2.add(btnMostrarRanking);
 		
 		//Tamañano maximo
@@ -112,14 +186,23 @@ public class EjemploPanel extends JFrame {
 				btnEjemplo.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
+						if(!Buscaminas.getMiBuscaminas().estaDestapado(xT, yT)){
 						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK){
-							ArrayList<Integer> listaDestapar;
-							System.out.println(listaDestapar = Buscaminas.getMiBuscaminas().destapar(xT,yT));
-							int k =0;
-							while (k < listaDestapar.size()) {
-								listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setText("Vacio");
-								k = k+2;
-							}
+							if(Buscaminas.getMiBuscaminas().esBomba(xT, yT)){
+								System.out.println("Mina");
+								lblBuscaminas.setText("HAS PERDIDO");
+								panel.setVisible(false);
+							}else{
+								ArrayList<Integer> listaDestapar;
+								System.out.println(listaDestapar = Buscaminas.getMiBuscaminas().destapar(xT,yT));
+								int k =0;
+								while (k < listaDestapar.size()) {
+									listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setBackground(Color.WHITE);
+									listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setText(Buscaminas.getMiBuscaminas().getValor(xT,yT));
+									listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setEnabled(false);
+									k = k+2;
+								}
+							}	
 						}else{
 						//Hacer contador de minas marcadas
 					    //Buscaminas.getMiBuscaminas().marcarDesmarcar(xT,yT);
@@ -133,6 +216,7 @@ public class EjemploPanel extends JFrame {
 						}
 					    
 						}
+						}
 					}
 				});
 				GridBagConstraints gbc_btnEjemplo = new GridBagConstraints();
@@ -142,6 +226,17 @@ public class EjemploPanel extends JFrame {
 				listaBotones[i][j]=btnEjemplo;
 			}
 		}
+		
+		//VentanaRanking
+		ListaUsuarios.getMiListaJugadores().cargarJugadores();
+		try {
+			vR = new VentanaRankingRR();
+			vR.setVisible(false);//Por defecto
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		
 	}
 }

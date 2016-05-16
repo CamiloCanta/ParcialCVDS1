@@ -25,15 +25,18 @@ import javax.swing.JTextPane;
 import javax.swing.JList;
 
 import code.ListaUsuarios;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaRankingRR extends JFrame {
 
 	private JPanel panelRanking;
 	private JPanel panelBotones;
 	private JLabel ranking;
-	private JButton salir;
 	private JButton volver;
 	private JList listaJugadores;
+	private JButton btnCerrarRanking;
+	
 	
 	
 	
@@ -63,7 +66,6 @@ public class VentanaRankingRR extends JFrame {
 	}
 	private void initialize() throws FileNotFoundException {
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRankingRR.class.getResource("/imagenes/FotoIcono.jpg")));
 		setTitle("VER RANKING");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -84,8 +86,7 @@ public class VentanaRankingRR extends JFrame {
 	private JPanel getPanelBotones() {
 		if (panelBotones == null) {
 			panelBotones = new JPanel();
-			panelBotones.add(getVolver());
-			panelBotones.add(getSalir());
+			panelBotones.add(getBtnCerrarRanking());
 		}
 		return panelBotones;
 	}
@@ -94,40 +95,6 @@ public class VentanaRankingRR extends JFrame {
 			ranking = new JLabel("Este es el ranking :");
 		}
 		return ranking;
-	}
-	private JButton getSalir() {
-		if (salir == null) {
-			salir = new JButton("SALIR");
-			salir.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					
-					dispose();
-				}
-			});
-			salir.setForeground(Color.BLUE);
-			salir.setFont(new Font("Curlz MT", Font.BOLD | Font.ITALIC, 16));
-		}
-		return salir;
-	}
-	private JButton getVolver() {
-		if (volver == null) {
-			volver = new JButton("VOLVER ");
-			volver.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					
-					try {
-						new VentanaPrincipal();
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					dispose();
-				}
-			});
-			volver.setForeground(Color.BLUE);
-			volver.setFont(new Font("Curlz MT", Font.BOLD | Font.ITALIC, 16));
-		}
-		return volver;
 	}
 	
 	@Override
@@ -168,5 +135,17 @@ public class VentanaRankingRR extends JFrame {
 		   
 		listaJugadores = new JList(model);
 		return listaJugadores;
+	}
+	private JButton getBtnCerrarRanking() {
+		if (btnCerrarRanking == null) {
+			btnCerrarRanking = new JButton("Cerrar Ranking");
+			btnCerrarRanking.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					dispose();
+				}
+			});
+		}
+		return btnCerrarRanking;
 	}
 }

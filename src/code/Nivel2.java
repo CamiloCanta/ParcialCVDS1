@@ -62,8 +62,8 @@ public class Nivel2 extends BuilderTablero{
 				
 			}
 		}
-		 for (int i=0;i<tab.ancho;i++){
-		       for (int z=0;z<tab.alto;z++){
+		for (int i=0;i<tab.getAncho();i++){
+		       for (int z=0;z<tab.getAlto();z++){
 		    	   if(tab.m[i][z]==null){
 		    		   tab.m[i][z]=new Vacia();
 		    		  tab. m[i][z].darValor(String.valueOf(0));

@@ -170,8 +170,8 @@ public class ListaUsuarios {
 		}*/
 		
 	}
-	
-	public void modificarJugador(String nombreJugador, int puntuacion){
+	//Tambien busca
+	public void modificarJugador(String nombreJugador){
 		
 		boolean esta = false;
 		Iterator<Usuario> it = this.getIterator();
@@ -184,8 +184,7 @@ public class ListaUsuarios {
 				esta = true;
 			}
 		}
-		int aa = jug1.getPuntos() + puntuacion;
-		jug1.darPuntuacion(aa);
+		jug1.calcularPuntuacion();
 
 	}
 	public Usuario getUltimo(){

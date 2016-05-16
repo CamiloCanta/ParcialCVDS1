@@ -17,7 +17,7 @@ public class Usuario {
 		return apellidos;
 	}
 	private void setPuntuacion(int p){
-		puntuacion=p;
+		puntuacion= puntuacion+p;
 	}
 	public void calcularPuntuacion(){
 		this.setPuntuacion(Buscaminas.getMiBuscaminas().calcularPuntuacion());

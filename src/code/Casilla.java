@@ -2,9 +2,9 @@
 
 public class Casilla {
 
-	String valor;
-	boolean estado;
-	boolean bloqueado=false;
+	private String valor;
+	private boolean estado;
+	private boolean bloqueado=false;
 	
 	public Casilla(){
 		estado=false;
