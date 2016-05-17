@@ -31,4 +31,12 @@
     <nombre>nombre raro</nombre>
     <puntuacion>25</puntuacion>
   </Jugador>
+  <Jugador>
+    <nombre>dd</nombre>
+    <puntuacion>28</puntuacion>
+  </Jugador>
+  <Jugador>
+    <nombre>hhh</nombre>
+    <puntuacion>335</puntuacion>
+  </Jugador>
 </list>
