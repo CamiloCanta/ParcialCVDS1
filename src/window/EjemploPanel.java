@@ -219,6 +219,7 @@ public class EjemploPanel extends JFrame {
 					    
 						}
 						}
+						pack();
 					}
 				});
 				GridBagConstraints gbc_btnEjemplo = new GridBagConstraints();
