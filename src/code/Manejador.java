@@ -57,9 +57,6 @@ public class Manejador extends DefaultHandler {
        }else if (localName.equals("nombre")){  
     	   jug.setNombre(nom);
        }  
-    	//System.out.println(ListaUsuarios.getMiListaJugadores().getTamano());
-    	//ListaUsuarios.getMiListaJugadores().imprimir();
-
     }  
  
 	  

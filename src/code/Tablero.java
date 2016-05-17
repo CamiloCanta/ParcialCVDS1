@@ -77,7 +77,6 @@ public class Tablero {
 			ArrayList<Integer> lista=new ArrayList<Integer>();
 			int a,b;
 			if(m[i][z].cas.getValor().equals("0")){
-				System.out.println("Entra en caso raro");
 				m[i][z].cas.cambiarEstado();
 				lista.add(i);
 				lista.add(z);
@@ -90,13 +89,10 @@ public class Tablero {
 						lista.addAll(destapar(a,b));
 					}
 				}
-			}else if(m[i][z].cas.getValor().equals("B")){
-				System.out.println("Bomba");
 			}else{
 				m[i][z].cas.cambiarEstado();
 				lista.add(i);
 				lista.add(z);
-				System.out.println("Caso normal "+ m[i][z].cas.getValor());
 			}
 			return lista;
 	}else{
@@ -106,21 +102,16 @@ public class Tablero {
 	public boolean marcarDesmarcar(int i,int j){
 		boolean d = false;
 		if(bloqueos<this.minas){
-			System.out.println("Primera opcion");
 			if(m[i][j].cas.bloquearDesbloquear()){
 				sumarBloqueos();
-				System.out.println(bloqueos);
 			}else{
 				restarBloqueos();
-				System.out.println(bloqueos);
 			}
 			d=true;
 		}else if(m[i][j].cas.getBloqueado()){
-			System.out.println("Segunda opcion");
 			m[i][j].cas.bloquearDesbloquear();
 			restarBloqueos();
 			d=true;
-			System.out.println(bloqueos);
 		}
 		return d;
 	}
@@ -276,6 +267,10 @@ public class Tablero {
 	public boolean estaDestapado(int xT, int yT) {
 		// TODO Auto-generated method stub
 		return m[xT][yT].cas.getEstado();
+	}
+	public boolean estaBloqueado(int xT, int yT) {
+		// TODO Auto-generated method stub
+		return m[xT][yT].cas.getBloqueado();
 	}
 }
 

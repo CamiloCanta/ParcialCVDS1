@@ -30,15 +30,7 @@ public class Buscaminas {
 		tablero = new Nivel3();	
 		tablero.construirTablero(3, text);
 		}
-		
-		
-		
-		
-		
-		this.tablero = tablero.devolverTablero();
-		System.out.println(text+"   "+selectedItem);
-		System.out.println(this.tablero.getMinas()+ "==MINAS");
-		
+		this.tablero = tablero.devolverTablero();		
 	}
 	public boolean marcarDesmarcar(int i,int j){
 		return this.tablero.marcarDesmarcar(i, j);
@@ -69,5 +61,10 @@ public class Buscaminas {
 	public boolean estaDestapado(int xT, int yT) {
 		// TODO Auto-generated method stub
 		return tablero.estaDestapado(xT, yT);
+	}
+
+	public boolean estaBloqueado(int xT, int yT) {
+		// TODO Auto-generated method stub
+		return this.tablero.estaBloqueado(xT,yT);
 	}
 }

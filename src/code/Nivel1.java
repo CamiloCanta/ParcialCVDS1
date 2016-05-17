@@ -22,7 +22,6 @@ public class Nivel1 extends BuilderTablero {
 		int i;
 		int z;
 		condicion=tab.getAncho()/2;
-		System.out.println(condicion);
 		while(condicion>0){
 			double e=Math.random()*tab.getAncho();
 			i=(int)e;

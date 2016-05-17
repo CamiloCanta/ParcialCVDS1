@@ -91,7 +91,7 @@ public class EjemploPanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				vR.setVisible(false);
-				dispose();
+				System.exit(0);
 			}
 		});
 		
@@ -190,16 +190,15 @@ public class EjemploPanel extends JFrame {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						if(!Buscaminas.getMiBuscaminas().estaDestapado(xT, yT)){
-						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK){
+						if((arg0.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK & !Buscaminas.getMiBuscaminas().estaBloqueado(xT,yT)){
 							if(Buscaminas.getMiBuscaminas().esBomba(xT, yT)){
-								System.out.println("Mina");
 								lblBuscaminas.setText("HAS PERDIDO");
 								lblBuscaminas.setFont(new Font("Times New Roman", Font.BOLD, 18));
 								lblBuscaminas.setForeground(Color.RED);
 								panel.setVisible(false);
 							}else{
 								ArrayList<Integer> listaDestapar;
-								System.out.println(listaDestapar = Buscaminas.getMiBuscaminas().destapar(xT,yT));
+								listaDestapar = Buscaminas.getMiBuscaminas().destapar(xT,yT);
 								int k =0;
 								while (k < listaDestapar.size()) {
 									listaBotones[listaDestapar.get(k)][listaDestapar.get(k+1)].setBackground(Color.WHITE);
