@@ -27,6 +27,8 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 public class EjemploPanel extends JFrame {
 
@@ -222,6 +224,11 @@ public class EjemploPanel extends JFrame {
 				GridBagConstraints gbc_btnEjemplo = new GridBagConstraints();
 				gbc_btnEjemplo.gridx = i;
 				gbc_btnEjemplo.gridy = j;
+				gbc_btnEjemplo.weightx = 1.0;
+				gbc_btnEjemplo.weighty = 1.0;
+				gbc_btnEjemplo.gridheight = 1;
+				gbc_btnEjemplo.gridwidth = 1;
+				//gbc_btnEjemplo.fill = GridBagConstraints.BOTH;
 				panel.add(btnEjemplo, gbc_btnEjemplo);
 				listaBotones[i][j]=btnEjemplo;
 			}
@@ -236,7 +243,7 @@ public class EjemploPanel extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		this.pack();
 		
 	}
 }

@@ -7,10 +7,10 @@ import org.junit.Test;
 import code.Tablero;
 
 public class TestTablero {
-	private Tablero tab = new Tablero(1);
+	private Tablero tab = new Tablero(1, "hola");
 	@Test
 	public void testTablero() {
-		Tablero t = new Tablero(2);
+		Tablero t = new Tablero(2, "hola");
 	}
 
 	@Test
@@ -26,20 +26,20 @@ public class TestTablero {
 
 	@Test
 	public void testGetAncho() {
-		Tablero t = new Tablero(1);
+		Tablero t = new Tablero(1,"hola");
 		t.setAncho(4);
 		assertEquals(t.getAncho(), 4);
 	}
 
 	@Test
 	public void testGetAlto() {
-		Tablero t = new Tablero(1);
+		Tablero t = new Tablero(1,"hola");
 		t.setAlto(4);
 		assertEquals(t.getAlto(), 4);	}
 
 	@Test
 	public void testCalcularPuntuacion() {
-		Tablero t = new Tablero(1);
+		Tablero t = new Tablero(1,"hola");
 		assertEquals(0, t.calcularPuntuacion());
 	}
 
@@ -60,7 +60,7 @@ public class TestTablero {
 
 	@Test
 	public void testDestapar() {
-		Tablero t = new Tablero(1);
+		Tablero t = new Tablero(1,"hola");
 		t.destapar(1, 1);//Fallo
 		assertNotEquals(0, t.calcularPuntuacion());
 	}
@@ -97,7 +97,7 @@ public class TestTablero {
 	}
 	@Test
 	public void testGetMinas() {
-		Tablero t = new Tablero(1);
+		Tablero t = new Tablero(1,"hola");
 		t.setMinas(5);
 		assertEquals(5, t.getMinas());
 	}
