@@ -17,7 +17,7 @@ import com.thoughtworks.xstream.XStream;
 
 public class ListaUsuarios {
 	private ArrayList<Usuario> lista;
-	private static ListaUsuarios miListaUsuarios=new ListaUsuarios("Ranking3.xml");//ruta
+	private static ListaUsuarios miListaUsuarios=new ListaUsuarios("C:\\Ranking3.xml");//ruta
 	private String path;
 	
 	private ListaUsuarios(String pPath){
