@@ -10,7 +10,7 @@ public class Nivel3 extends BuilderTablero {
 		tab.setAlto(16);
 		tab.setAncho(16);
 		tab.setMinas(12);
-		tab.m=new BuilderCasilla[tab.getAncho()][tab.getAlto()];
+		tab.setTablero(new BuilderCasilla[tab.getAncho()][tab.getAlto()]);
 
 	}
 
@@ -26,10 +26,9 @@ public class Nivel3 extends BuilderTablero {
 			i=(int)e;
 			double f=Math.random()*tab.getAlto();
 			z=(int)f;
-
-			if(tab.m[i][z]==null){
-				tab.m[i][z]=new Bomba();
-				tab.m[i][z].darValor("B");
+			if( tab.getTablero()[i][z]==null){
+				tab.getTablero()[i][z]=new Bomba();
+				tab.getTablero()[i][z].darValor("B");
 				condicion=condicion-1;
 			}
 		}
@@ -42,30 +41,30 @@ public class Nivel3 extends BuilderTablero {
 		int b=0;
 		for(int i=0;i<tab.getAncho();i++){
 			for(int z=0;z<tab.getAlto();z++){
-				if(tab.m[i][z]==null){
+				if(tab.getTablero()[i][z]==null){
 					int valor=0;
 					ArrayList<Integer> lista=tab.buscar(i, z);
 					Iterator<Integer> it=lista.iterator();
 					while(it.hasNext()){
 						a=it.next();
 						b=it.next();
-						if(tab.m[a][b]!=null && tab.m[a][b].cas.getValor()=="B"){
+						if(tab.getTablero()[a][b]!=null && tab.getTablero()[a][b].cas.getValor()=="B"){
 							valor++;
 						}
 					}
 					if(valor!=0){
-						tab.m[i][z]=new ConValor();
-						tab.m[i][z].cas.darValor(String.valueOf(valor));
+						tab.getTablero()[i][z]=new ConValor();
+						tab.getTablero()[i][z].cas.darValor(String.valueOf(valor));
 					}
 				}
 				
 			}
 		}
-		for (int i=0;i<tab.getAncho();i++){
+		 for (int i=0;i<tab.getAncho();i++){
 		       for (int z=0;z<tab.getAlto();z++){
-		    	   if(tab.m[i][z]==null){
-		    		   tab.m[i][z]=new Vacia();
-		    		  tab. m[i][z].darValor(String.valueOf(0));
+		    	   if(tab.getTablero()[i][z]==null){
+		    		   tab.getTablero()[i][z]=new Vacia();
+		    		  tab.getTablero()[i][z].darValor(String.valueOf(0));
 		    	   }
 		       }
 		 }

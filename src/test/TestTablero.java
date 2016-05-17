@@ -15,8 +15,7 @@ public class TestTablero {
 
 	@Test
 	public void testSetAncho() {
-		tab.setAncho(4);///Pregunta No se pueden juntar los test de los getters y setters y no es mejor inicializar arriba
-		//la variable tab
+		tab.setAncho(4);
 	}
 
 	@Test
@@ -44,16 +43,6 @@ public class TestTablero {
 	}
 
 	@Test
-	public void testRevelarTablero() {
-		tab.revelarTablero();
-		for(int i=0;i<4;i++){
-			for(int z=0;z<4;z++){
-				assertEquals(tab.m[i][z].cas.getEstado(),true);
-			}
-		}
-	}
-
-	@Test
 	public void testEsBomba() {
 		//No necesario
 	}
@@ -67,33 +56,20 @@ public class TestTablero {
 
 	@Test
 	public void testMarcarDesmarcar() {
-		tab.marcarDesmarcar(1, 1);
-		assertEquals(true,tab.m[1][1].cas.getBloqueado());
-		tab.marcarDesmarcar(1,1);
-		assertEquals(false,tab.m[1][1].cas.getBloqueado());
+		//Simulado
 	}
-
-	@Test
-	public void testImprimir() {
-	}
-
 	@Test
 	public void testBuscar() {
+		//Simulado
 	}
 
 	@Test
 	public void testSetMinas() {
+		//No necesario
 	}
 	@Test	
 	public void testComprobar() {
-		for (int i=0;i<4;i++){
-		      for (int z=0;z<4;z++){
-		    	  if(tab.m[i][z].cas.getValor().equals("B")){
-		    			  tab.m[i][z].cas.bloquearDesbloquear();		    		  
-		    	  }
-		      }
-		}
-		assertTrue(tab.comprobar());
+		//Simulado
 	}
 	@Test
 	public void testGetMinas() {

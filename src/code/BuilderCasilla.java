@@ -2,7 +2,7 @@ package code;
 
 public abstract class BuilderCasilla {
 
-	public Casilla cas;
+	protected Casilla cas;
 	
 	public void contruirCasilla(){
 		cas=new Casilla();

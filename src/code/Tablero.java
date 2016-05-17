@@ -9,7 +9,7 @@ import window.EjemploPanel;
 
 public class Tablero {
 
-	public BuilderCasilla [][] m;
+	private BuilderCasilla [][] m;
 	private int ancho;
 	private int alto;
 	private int bloqueos=0;
@@ -27,6 +27,13 @@ public class Tablero {
 		alto=a;
 	}
 	
+	public BuilderCasilla[][] getTablero(){
+		return this.m;
+	}
+	
+	public void setTablero(BuilderCasilla [][] pTablero){
+		this.m = pTablero;
+	}
 	
 	public int getAncho(){
 		return ancho;
