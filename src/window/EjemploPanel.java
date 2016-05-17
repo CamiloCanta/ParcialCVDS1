@@ -3,6 +3,7 @@ package window;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -193,6 +194,8 @@ public class EjemploPanel extends JFrame {
 							if(Buscaminas.getMiBuscaminas().esBomba(xT, yT)){
 								System.out.println("Mina");
 								lblBuscaminas.setText("HAS PERDIDO");
+								lblBuscaminas.setFont(new Font("Times New Roman", Font.BOLD, 18));
+								lblBuscaminas.setForeground(Color.RED);
 								panel.setVisible(false);
 							}else{
 								ArrayList<Integer> listaDestapar;
@@ -206,12 +209,10 @@ public class EjemploPanel extends JFrame {
 								}
 							}	
 						}else{
-						//Hacer contador de minas marcadas
-					    //Buscaminas.getMiBuscaminas().marcarDesmarcar(xT,yT);
 					    //If de control de banderitas
 					    if (Buscaminas.getMiBuscaminas().marcarDesmarcar(xT,yT)) {
 							if (btnEjemplo.getText().equals(" ")) {
-								btnEjemplo.setText("$");
+								btnEjemplo.setText("!!");
 							} else {
 								btnEjemplo.setText(" ");
 							}
@@ -229,7 +230,7 @@ public class EjemploPanel extends JFrame {
 				gbc_btnEjemplo.weighty = 1.0;
 				gbc_btnEjemplo.gridheight = 1;
 				gbc_btnEjemplo.gridwidth = 1;
-				//gbc_btnEjemplo.fill = GridBagConstraints.BOTH;
+				gbc_btnEjemplo.fill = GridBagConstraints.BOTH;
 				panel.add(btnEjemplo, gbc_btnEjemplo);
 				listaBotones[i][j]=btnEjemplo;
 			}

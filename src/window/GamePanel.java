@@ -13,6 +13,10 @@ import javax.swing.JButton;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GamePanel extends JFrame {
 
@@ -49,6 +53,12 @@ public class GamePanel extends JFrame {
 		contentPane.add(panelJuego, BorderLayout.CENTER);
 		
 		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setForeground(Color.RED);
+		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		
 		GroupLayout gl_panelJuego = new GroupLayout(panelJuego);
 		gl_panelJuego.setHorizontalGroup(
