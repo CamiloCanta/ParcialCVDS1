@@ -45,3 +45,18 @@ Identificar Malas practicas
 
 ![image](https://user-images.githubusercontent.com/108955358/190654749-1c614d4b-c7fd-4095-8d62-a2717791e43c.png)
 
+- Planteamiento solución Unit Test
+
+```
+Public void Dado_UnaCasilla_Cuando_QuiereCambiarEstado_Entonces_CambieEstado();
+    Casilla c = new Casilla();
+    c.cambiarEstado();
+    assertEquals(true, c.getEstado());
+  
+  
+Public void Dado_UnaCasilla_Cuando_SeQuiereSaberSiEsUnaBomba_Entonces_esBomba();
+    Casilla c = new Casilla();
+    c.darValor("B")
+    assertEquals(true, c.esBomba());
+    
+```
