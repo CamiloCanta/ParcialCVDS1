@@ -37,6 +37,10 @@ Identificar Malas practicas
 ![image](https://user-images.githubusercontent.com/108955358/190653447-95ae70d2-7db2-44e0-be46-2d0736594c0a.png)
 ![image](https://user-images.githubusercontent.com/108955358/190653533-9d5ae205-4025-437b-be48-90916ec5f120.png)
 
+**Solucion
+
+Aplicamos encapsulamiento con el fin de que la responsabilidad quede en una clase llamada nivel. 
+
 - Nombramiento pruebas unitarias
 
 ![image](https://user-images.githubusercontent.com/108955358/190654555-66a7881e-c282-4cdf-823d-225b39ce2e04.png)
@@ -45,9 +49,7 @@ Identificar Malas practicas
 
 ![image](https://user-images.githubusercontent.com/108955358/190654749-1c614d4b-c7fd-4095-8d62-a2717791e43c.png)
 
-//solucion
 
-Aplicamos encapsulamiento con el fin de que la responsabilidad quede en una clase llamada nivel. 
 
 - Planteamiento solución Unit Test
 
