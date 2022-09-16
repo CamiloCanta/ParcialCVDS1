@@ -37,7 +37,7 @@ Identificar Malas practicas
 ![image](https://user-images.githubusercontent.com/108955358/190653447-95ae70d2-7db2-44e0-be46-2d0736594c0a.png)
 ![image](https://user-images.githubusercontent.com/108955358/190653533-9d5ae205-4025-437b-be48-90916ec5f120.png)
 
-**Solucion
+**Solucion**
 
 Aplicamos encapsulamiento con el fin de que la responsabilidad quede en una clase llamada nivel. 
 
