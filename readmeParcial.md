@@ -39,4 +39,9 @@ Identificar Malas practicas
 
 - Nombramiento pruebas unitarias
 
+![image](https://user-images.githubusercontent.com/108955358/190654555-66a7881e-c282-4cdf-823d-225b39ce2e04.png)
+
+![image](https://user-images.githubusercontent.com/108955358/190654608-accc5c45-bd4b-4b45-bf37-0bc64879538f.png)
+
+![image](https://user-images.githubusercontent.com/108955358/190654749-1c614d4b-c7fd-4095-8d62-a2717791e43c.png)
 
