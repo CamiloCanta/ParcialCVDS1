@@ -75,4 +75,46 @@ Public void Dado_UnaCasilla_Cuando_SeQuiereSaberSiEsUnaBomba_Entonces_esBomba();
     //assert
     assertEquals(true, c.esBomba());
     
+    
+ Public void Dado_UnaUsuario_Cuando_SeTienenVariosUsuarios_Entonces_obtenerRanking();
+    //arrange
+    Usuario u = new Usuario("a");
+    
+    //act
+    ListaUsuarios.getMiListaJugadores().anadirJugador(u);
+    ListaUsuarios.getMiListaJugadores().anadirJugadorPorNombre("Hola");
+    assertEquals(2, ListaUsuarios.getMiListaJugadores().obtenerRanking(10).size());
+    ListaUsuarios.getMiListaJugadores().borrarJugador(u);
+    
+    //assert
+    assertEquals(1, ListaUsuarios.getMiListaJugadores().obtenerRanking(10).size())
+    
+    
+public void Dado_UnTablero_Cuando_sePruebaElAncho_Entonces_AnchoEsCorrecto() {
+        //arrange
+		Tablero t = new Tablero(1,"hola");
+        
+        //act
+		t.setAncho(4);
+        
+        //assert
+		assertEquals(t.getAncho(), 4);
+        
+public void Dado_UnTablero_Cuando_sePruebaElAlto_Entonces_AltoEsCorrecto() {
+        //arrange
+		Tablero t = new Tablero(1,"hola");
+        
+        //act
+		t.setAlto(8);
+        
+        //assert
+		assertEquals(t.getAlto(), 8);
+        
+        
+public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntuacion() {
+        //arrange
+		Tablero t = new Tablero(1,"hola");
+        //assert
+		assertEquals(0, t.calcularPuntuacion());
+	}
 ```
