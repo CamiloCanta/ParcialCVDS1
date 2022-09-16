@@ -45,18 +45,32 @@ Identificar Malas practicas
 
 ![image](https://user-images.githubusercontent.com/108955358/190654749-1c614d4b-c7fd-4095-8d62-a2717791e43c.png)
 
+//solucion
+
+Aplicamos encapsulamiento con el fin de que la responsabilidad quede en una clase llamada nivel. 
+
 - Planteamiento solución Unit Test
 
 ```
 Public void Dado_UnaCasilla_Cuando_QuiereCambiarEstado_Entonces_CambieEstado();
+    //arrange
     Casilla c = new Casilla();
+    
+    //Act
     c.cambiarEstado();
+    
+    //Assert
     assertEquals(true, c.getEstado());
   
   
 Public void Dado_UnaCasilla_Cuando_SeQuiereSaberSiEsUnaBomba_Entonces_esBomba();
+    //arrange
     Casilla c = new Casilla();
+    
+    //act
     c.darValor("B")
+    
+    //assert
     assertEquals(true, c.esBomba());
     
 ```
