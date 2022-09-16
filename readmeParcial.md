@@ -27,3 +27,16 @@ Paso a Paso GIT
 
 ![image](https://user-images.githubusercontent.com/108955358/190651605-958ed4c9-d969-4bf3-9ffa-6b0718b82736.png)
 ![image](https://user-images.githubusercontent.com/108955358/190651677-d0000590-fd4e-497a-b272-31f3925bc54f.png)
+
+Identificar Malas practicas
+=
+
+- Codigo repetido
+
+![image](https://user-images.githubusercontent.com/108955358/190653241-d52d697d-8a46-4240-bc24-4ddd57af6ffa.png)
+![image](https://user-images.githubusercontent.com/108955358/190653447-95ae70d2-7db2-44e0-be46-2d0736594c0a.png)
+![image](https://user-images.githubusercontent.com/108955358/190653533-9d5ae205-4025-437b-be48-90916ec5f120.png)
+
+- Nombramiento pruebas unitarias
+
+
