@@ -43,7 +43,10 @@ crear una clase abstracta llamada Nivel, que implemente una interfaz en donde te
 cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio solid, a su vez la clase abstracta hereda atributos como ancho alto y numero de minas.
 
 
-- Scope de las pruebas unitarias no esta completo
+- Scope de las pruebas unitarias no cubre todo
+
+![image](https://user-images.githubusercontent.com/108955358/190837877-5c3e57a9-12d3-47b1-ba3b-b093ec732a4d.png)
+![image](https://user-images.githubusercontent.com/108955358/190837900-5eb6d4a4-3d1f-4135-a99f-3d88b3af16e9.png)
 
 
 
@@ -124,6 +127,6 @@ public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntua
 		assertEquals(0, t.calcularPuntuacion());
 	}
 ```
-**patron de diseño**
+**Patrón de diseño**
 
 Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cunato a la creacion de niveles. cada ve que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
