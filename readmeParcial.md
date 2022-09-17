@@ -43,6 +43,7 @@ crear una clase abstracta llamada Nivel, que implemente una interfaz en donde te
 cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio solid, a su vez la clase abstracta hereda atributos como ancho alto y numero de minas.
 
 
+- Scope de las pruebas unitarias no esta completo
 
 
 
