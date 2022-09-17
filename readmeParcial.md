@@ -129,4 +129,4 @@ public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntua
 ```
 **Patrón de diseño**
 
-Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cunato a la creacion de niveles. cada ve que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
+Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cuanto a la creacion de niveles. cada vez que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
