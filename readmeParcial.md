@@ -42,6 +42,129 @@ Identificar Malas practicas
 crear una clase abstracta llamada Nivel, que implemente una interfaz en donde tendran los metodos de poner bombas y asignar valores.
 cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio solid, a su vez la clase abstracta hereda atributos como ancho alto y numero de minas.
 
+```
+public abstract class nivel  implements creacionNivel  {
+
+	protected int filas;
+	protected int columnas;
+	protected tablero tab;
+	
+	public nivel(int filas, int columnas, tablero tab){
+		this.tab = tablero;
+		this.filas = filas;
+		this.columnas = columnas;
+		tab.setAlto(4);
+		tab.setAncho(4);
+		tab.setMinas(2);
+		
+	}
+	
+	
+	public void ponerBombas() {
+		// TODO Auto-generated method stub
+		int condicion=0;
+		int i;
+		int z;
+		condicion=tab.getAncho()/2;
+		while(condicion>0){
+			double e=Math.random()*tab.getAncho();
+			i=(int)e;
+			double f=Math.random()*tab.getAlto();
+			z=(int)f;
+			if( tab.getTablero()[i][z]==null){
+				tab.getTablero()[i][z]=new Bomba();
+				tab.getTablero()[i][z].darValor("B");
+				condicion=condicion-1;
+			}
+		}
+	}
+
+	
+	public void asignarValores() {
+		// TODO Auto-generated method stub
+		int a=0;
+		int b=0;
+		for(int i=0;i<tab.getAncho();i++){
+			for(int z=0;z<tab.getAlto();z++){
+				if(tab.getTablero()[i][z]==null){
+					int valor=0;
+					ArrayList<Integer> lista=tab.buscar(i, z);
+					Iterator<Integer> it=lista.iterator();
+					while(it.hasNext()){
+						a=it.next();
+						b=it.next();
+						if(tab.getTablero()[a][b]!=null && tab.getTablero()[a][b].cas.getValor()=="B"){
+							valor++;
+						}
+					}
+					if(valor!=0){
+						tab.getTablero()[i][z]=new ConValor();
+						tab.getTablero()[i][z].cas.darValor(String.valueOf(valor));
+					}
+				}
+				
+			}
+		}
+		 for (int i=0;i<tab.getAncho();i++){
+		       for (int z=0;z<tab.getAlto();z++){
+		    	   if(tab.getTablero()[i][z]==null){
+		    		   tab.getTablero()[i][z]=new Vacia();
+		    		  tab.getTablero()[i][z].darValor(String.valueOf(0));
+		    	   }
+		       }
+		 }
+	}
+
+
+}
+
+interface creacionNivel(){
+
+	public void asignarValores();
+	
+	public void ponerBombas();
+
+}
+
+
+
+public class nivel1
+	
+	public nivel0(int filas,int columnas, tablero tab){
+	
+		this.filas = filas;
+		this.columnas = columnas;
+		this.tab = tab;
+	}
+
+}
+
+
+public class nivel2{
+	
+	public nivel2(int filas,int columnas, tablero tab){
+	
+		this.filas = filas;
+		this.columnas = columnas;
+		this.tab = tab;
+	}
+
+}
+
+
+
+public class nivel3{
+	
+	public nivel3(int filas,int columnas, tablero tab){
+	
+		this.filas = filas;
+		this.columnas = columnas;
+		this.tab = tab;
+	}
+
+}
+```
+
 - Scope de las pruebas unitarias no cubre todo
 
 ![image](https://user-images.githubusercontent.com/108955358/190837877-5c3e57a9-12d3-47b1-ba3b-b093ec732a4d.png)
