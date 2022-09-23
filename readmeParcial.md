@@ -48,9 +48,9 @@ cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio sol
 ![image](https://user-images.githubusercontent.com/108955358/190837877-5c3e57a9-12d3-47b1-ba3b-b093ec732a4d.png)
 ![image](https://user-images.githubusercontent.com/108955358/190837900-5eb6d4a4-3d1f-4135-a99f-3d88b3af16e9.png)
 
+- SUT: es un Proyecto que cumple el SUT, ya que constantemente esta realizando pruebas para su correcto comportamiento pero como lo dicho anteriormente su scope no cubre completamente el proyecto
 
-
-- Nombramiento pruebas unitarias
+- Nombramiento pruebas unitarias y la no implementacion de el patrón AAA
 
 ![image](https://user-images.githubusercontent.com/108955358/190654555-66a7881e-c282-4cdf-823d-225b39ce2e04.png)
 
@@ -84,7 +84,7 @@ Public void Dado_UnaCasilla_Cuando_SeQuiereSaberSiEsUnaBomba_Entonces_esBomba();
     //assert
     assertEquals(true, c.esBomba());
     
-    
+ //Multiples clases de equivalencia
  Public void Dado_UnaUsuario_Cuando_SeTienenVariosUsuarios_Entonces_obtenerRanking();
     //arrange
     Usuario u = new Usuario("a");
@@ -92,11 +92,12 @@ Public void Dado_UnaCasilla_Cuando_SeQuiereSaberSiEsUnaBomba_Entonces_esBomba();
     //act
     ListaUsuarios.getMiListaJugadores().anadirJugador(u);
     ListaUsuarios.getMiListaJugadores().anadirJugadorPorNombre("Hola");
-    assertEquals(2, ListaUsuarios.getMiListaJugadores().obtenerRanking(10).size());
     ListaUsuarios.getMiListaJugadores().borrarJugador(u);
     
     //assert
     assertEquals(1, ListaUsuarios.getMiListaJugadores().obtenerRanking(10).size())
+    assertEquals(2, ListaUsuarios.getMiListaJugadores().obtenerRanking(10).size());
+    
     
     
 public void Dado_UnTablero_Cuando_sePruebaElAncho_Entonces_AnchoEsCorrecto() {
@@ -129,4 +130,5 @@ public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntua
 ```
 **Patrón de diseño**
 
-Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cuanto a la creacion de niveles. cada vez que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
+- Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cuanto a la creacion de niveles. cada vez que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
+
