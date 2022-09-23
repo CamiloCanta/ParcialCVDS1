@@ -42,13 +42,13 @@ Identificar Malas practicas
 crear una clase abstracta llamada Nivel, que implemente una interfaz en donde tendran los metodos de poner bombas y asignar valores.
 cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio solid, a su vez la clase abstracta hereda atributos como ancho alto y numero de minas.
 
-
 - Scope de las pruebas unitarias no cubre todo
 
 ![image](https://user-images.githubusercontent.com/108955358/190837877-5c3e57a9-12d3-47b1-ba3b-b093ec732a4d.png)
 ![image](https://user-images.githubusercontent.com/108955358/190837900-5eb6d4a4-3d1f-4135-a99f-3d88b3af16e9.png)
 
 - SUT: es un Proyecto que cumple el SUT, ya que constantemente esta realizando pruebas para su correcto comportamiento pero como lo dicho anteriormente su scope no cubre completamente el proyecto
+- Principios first: no cumple el principio R, ya que no es repetible y no lo pudimos correr en nuestras maquina.
 
 - Nombramiento pruebas unitarias y la no implementacion de el patrón AAA
 
