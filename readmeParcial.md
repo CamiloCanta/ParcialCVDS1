@@ -37,7 +37,7 @@ Identificar Malas practicas
 ![image](https://user-images.githubusercontent.com/108955358/190653447-95ae70d2-7db2-44e0-be46-2d0736594c0a.png)
 ![image](https://user-images.githubusercontent.com/108955358/190653533-9d5ae205-4025-437b-be48-90916ec5f120.png)
 
-**Solucion**
+**Solución**
 
 crear una clase abstracta llamada Nivel, que implemente una interfaz en donde tendran los metodos de poner bombas y asignar valores.
 cada nuevo nivel se creara en una nueva clase, cumpliendo la o del principio solid, a su vez la clase abstracta hereda atributos como ancho alto y numero de minas.
@@ -258,6 +258,7 @@ public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntua
 	}
 ```
 **Patrón de diseño**
+=
 
 - Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cuanto a la creacion de niveles. cada vez que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
 
