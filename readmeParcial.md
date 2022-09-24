@@ -53,9 +53,7 @@ public abstract class nivel  implements creacionNivel  {
 		this.tab = tablero;
 		this.filas = filas;
 		this.columnas = columnas;
-		tab.setAlto(4);
-		tab.setAncho(4);
-		tab.setMinas(2);
+		
 		
 	}
 	
@@ -114,6 +112,10 @@ public abstract class nivel  implements creacionNivel  {
 		       }
 		 }
 	}
+	
+	public Tablero devolverTablero(){
+		return tab;
+	}
 
 
 }
@@ -123,7 +125,11 @@ interface creacionNivel(){
 	public void asignarValores();
 	
 	public void ponerBombas();
-
+	
+	public Tablero devolverTablero();
+	
+	public void ponerNivel();
+	
 }
 
 
@@ -254,4 +260,28 @@ public void Dado_unTablero_Cuando_SeRequiereLaPuntuacion_Entonces_DevolverPuntua
 **Patrón de diseño**
 
 - Aplicamos factory para la creacion de niveles, debido a que pensando en un juego escalable y donde tenga la posibilidad de que los usuarios puedan cada vez mas jugar un juego con mayor dificultad y incluso un juego personalizado, con una interfaz global, este patron nos permitira generar una flexibilidad en cuanto a la creacion de niveles. cada vez que quieran  mas niveles, simplemente se agrega una nueva clase, sin tener que modificar la logica actual. y se podria reutilzar.
+
+```
+
+public void nuevaPartida(String text, Object selectedItem) {
+		creacionNivel nivel = construirNivel((String)selectedItem);
+		this.tablero = nivel.obtenerTablero();	
+	}
+
+
+public CreacionNivel construirNivel(String nivel){
+	switch (nivel){
+		case "1":
+			return new nivel1(4,4,2);
+		case "2":
+			return new nivel2(8,8,4);
+		case "3":
+			return new nivel3(12,12,8);		
+	}
+}
+
+
+
+
+```
 
